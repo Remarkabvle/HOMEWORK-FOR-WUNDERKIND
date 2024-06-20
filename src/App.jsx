@@ -1,22 +1,24 @@
-import { Route, Routes } from 'react-router-dom';
-import './App.css';
-import Home from './pages/home/Home';
-import User from './pages/user/User';
-import Login from './pages/login/Login';
-import Register from './pages/register/Register';
-import Header from './components/header/Header';
-import CreateProduct from './pages/createProduct/createProduct';
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import Layout from "./components/layouts/index";
+import Home from "./pages/home/Home";
+import Login from "./pages/login/Login";
+import Admin from "./pages/admin/Admin";
+import Auth from "./pages/auth/Auth";
+import Products from "./components/products/Products"; // Products sahifasini import qilish
 
 function App() {
   return (
     <>
-      <Header />
       <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/user' element={<User />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/register' element={<Register />} />
-        <Route path='/create-product' element={<CreateProduct />} />
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="login" element={<Login />} />
+          <Route path="admin" element={<Admin />} />
+          <Route path="auth" element={<Auth />} />
+          <Route path="products" element={<Products />} /> {/* Products sahifasi */}
+        </Route>
       </Routes>
     </>
   );
